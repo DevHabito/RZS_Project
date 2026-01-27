@@ -1,32 +1,55 @@
-Relational Zero State (RZS) - Observational Validation
+Relational Zero State (RZS) Cosmology
 
-This repository contains the observational validation for the Relational Zero State (RZS) cosmological model. The model proposes a latency field Φ with a spectral stability point at α≈1.5 to address the Hubble Tension and early galaxy formation.
-🛠 Validation against DESI Data
+Numerical Implementation and Observational Validation
 
-The primary validation script is located in the /validation folder:
+This repository contains the numerical framework for the Relational Zero State (RZS) cosmological model, as described in the manuscript:
 
-    File: validation/rzs_DESI.py
+    "Relational Zero State: A Scale-Invariant Framework for the Hubble Tension and Early Galaxy Formation" (Ref: DARK-D-26-00136, Physics of the Dark Universe).
 
-    Dataset: Processes the BGS_BRIGHT_N_clustering.dat.fits sample from the Dark Energy Spectroscopic Instrument (DESI).
+🌌 Overview
 
-    Methodology: The script converts RA, Dec, and Redshift into 3D Cartesian coordinates to reconstruct the cosmic web's connectivity.
+The RZS model introduces a latency field Φ with non-minimal gravitational coupling to address major cosmological discrepancies. By identifying a spectral stability point at α≈1.5, the model provides a physical mechanism to resolve the Hubble Tension and explains the presence of massive galaxies at high redshifts (z≈10) observed by JWST.
+🛠 Repository Structure
+⚖️ Calibration & Optimization
 
-    Spatial Analysis: It uses a cKDTree algorithm to identify galaxy pairings within a physical radius of 6.0 Mpc.
+    RZS_Perfect_Calibration.py: The primary engine used to find the optimal balance between matter-latency coupling (β) and spectral rigidity (λ).
 
-    Key Result: It plots the connectivity probability distribution P(k) against theoretical power laws, demonstrating that observed galaxy clustering aligns with the RZS stability index of α=1.5.
+    RZS - FINAL CALIBRATION WITH HIGH ENERGY...: A stress-test implementation for high-energy regimes (Vscale​=10,000), ensuring stability and H0​≈73 km/s/Mpc.
 
-🚀 How to Run
+    rzs_mcmc.py: Scripts for Markov Chain Monte Carlo inference to compare model parameters against cosmological constraints.
 
-    Ensure you have the required libraries: numpy, matplotlib, astropy, and scipy.
+🔍 Observational Validation
 
-    Place the DESI FITS file in the root directory or update the FILE_NAME path in the script.
+Located in the /validation directory:
 
-    Run the validation:
-  
+    rzs_DESI.py: Validates the model's large-scale connectivity predictions using data from the Dark Energy Spectroscopic Instrument (DESI) BGS Bright sample. It confirms that galaxy clustering aligns with the RZS stability index of α=1.5.
+
+🚀 Getting Started
+Prerequisites
+
+    Python 3.x
+
+    numpy, scipy, matplotlib, astropy
+
+Running the DESI Validation
+
+    Ensure the BGS_BRIGHT_N_clustering.dat.fits file is available.
+
+    Run the analysis:
     Bash
+    python validation/rzs_DESI.py
 
-  python validation/rzs_DESI.py
+📈 Key Results
 
-  Contact
+    Hubble Constant: H0​≈73.0 km/s/Mpc.
 
-  Felipe Romero Author of the RZS Framework Manuscript Ref: DARK-D-26-00136 (Physics of the Dark Universe)
+    Effective Gravity: Predicts a Geff​(z) evolution that supports early structure assembly.
+
+    Network Stability: Confirms α=1.5 as a universal attractor for cosmic web connectivity.
+
+✉️ Contact
+
+Felipe Romero 
+
+Relational Zero State: A Scale-Invariant Framework for the Hubble Tension and Early Galaxy Formation (Ref: DARK-D-26-00136, Physics of the Dark Universe).
+https://doi.org/10.5281/zenodo.18371599 - The Relational Zero State Hypothesis (RZS): Gradient Flow Dynamics and the Emergence of Spacetime Geometry
